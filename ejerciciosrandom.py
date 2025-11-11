@@ -30,7 +30,7 @@ print(numeros)
 personas.reverse()
 print(personas) '''
 
-numeros = []
+'''numeros = []
 
 for i in range (10):
     n= int(input("Ingrese 10 números"))
@@ -41,4 +41,12 @@ print("de menor ", min(numeros))
 numeros.sort()
 print(numeros)
 numeros.reverse()
-print(numeros)
+print(numeros)'''
+
+# 1️⃣ Crear una lista y mostrar elementos
+
+# Crea una lista con los nombres de tus 5 amigos y muestra el primer y último elemento.
+
+lista = ["pedro", "juan", "miguel" , "jose", "felipe"]
+print(lista [0])
+print(lista [-1])
