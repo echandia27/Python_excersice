@@ -1,0 +1,122 @@
+Mini Proyectos en Python
+1. Sistema de Biblioteca Virtual
+
+Descripción:
+Crea un programa que permita gestionar una pequeña biblioteca.
+
+Debe permitir:
+
+    Ver los libros disponibles.
+    Agregar nuevos libros.
+    Prestar libros (cambiar su estado a “prestado”).
+    Devolver libros.
+    Ver el historial de préstamos.
+
+2. Gestor de Tareas Diarias
+
+Descripción:
+Simula una app de tareas pendientes (To-Do List).
+
+Debe permitir:
+
+    Agregar tareas.
+    Marcar tareas como completadas.
+    Eliminar tareas.
+    Mostrar todas las tareas (pendientes y completadas).
+    Salir del sistema.
+
+3. Calculadora con Historial
+
+Descripción:
+Crea una calculadora que permita realizar operaciones básicas y guarde el historial.
+
+Debe permitir:
+
+    Sumar, restar, multiplicar y dividir.
+    Mostrar el resultado de la última operación.
+    Mostrar todo el historial.
+    Borrar el historial.
+
+4. Mini Tienda Virtual
+
+Descripción:
+Simula una tienda pequeña donde el usuario puede comprar productos.
+
+Debe permitir:
+
+    Mostrar el catálogo de productos con precios.
+    Agregar productos al carrito.
+    Ver el total a pagar.
+    Finalizar la compra.
+
+5. Sistema de Recetas
+
+Descripción:
+Crea un programa que almacene y muestre recetas.
+
+Debe permitir:
+
+    Agregar una receta con ingredientes y pasos.
+    Buscar receta por nombre.
+    Listar todas las recetas.
+    Eliminar receta.
+
+6. Gestor de Cuentas Bancarias
+
+Descripción:
+Simula un sistema para gestionar múltiples cuentas.
+
+Debe permitir:
+
+    Crear una nueva cuenta (nombre y saldo inicial).
+    Depositar o retirar dinero en una cuenta seleccionada.
+    Consultar el saldo.
+    Ver todas las cuentas creadas.
+
+7. Sistema de Reservas de Cine
+
+Descripción:
+Permite reservar asientos para una película.
+
+Debe permitir:
+
+    Mostrar asientos disponibles.
+    Reservar un asiento (cambiar su estado a “ocupado”).
+    Cancelar una reserva.
+    Ver el mapa de asientos actualizado.
+
+8. Registro de Estudiantes
+
+Descripción:
+Sistema básico de gestión de estudiantes.
+
+Debe permitir:
+
+    Registrar estudiantes (nombre, edad, nota).
+    Buscar estudiante por nombre.
+    Mostrar el promedio general.
+    Mostrar lista completa de estudiantes.
+
+9. Juego: Adivina el Número
+
+Descripción:
+El sistema genera un número aleatorio del 1 al 100 y el jugador debe adivinarlo.
+
+Debe permitir:
+
+    Adivinar hasta acertar o rendirse.
+    Contar el número de intentos.
+    Mostrar si el número ingresado es mayor o menor.
+    Reiniciar el juego.
+
+10. Control de Gastos Personales
+
+Descripción:
+Sistema para registrar y analizar gastos diarios.
+
+Debe permitir:
+
+    Registrar un gasto (nombre, monto, categoría).
+    Mostrar el total gastado.
+    Mostrar gastos por categoría.
+    Eliminar un gasto.
