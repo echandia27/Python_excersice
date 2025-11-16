@@ -7,10 +7,10 @@
 
 # **Sugerencia:** usa `list.insert()`.
 
-teatro=["juan","carlos", "perdo", "jaime"]
+butacas=["juan","carlos", "perdo", "jaime"]
 
 
-def butacas(butacas, nombre, posicion):
+def reserva(butacas, nombre, posicion):
     if nombre in butacas :
         print("Ya existe")
     elif not posicion in range(len(butacas)):
@@ -21,4 +21,5 @@ def butacas(butacas, nombre, posicion):
             i+=1
             print(f"{i}. {n}")
 
-butacas(teatro, "CARLOS", 2)
+reserva(butacas, "alfredo", 2)
+reserva(butacas, "perdo", 1)
