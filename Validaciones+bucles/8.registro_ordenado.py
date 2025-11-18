@@ -3,7 +3,7 @@
 # los elementos sean comparables y ordene.  
 # - Si `descendente` es `True`, ordenar en orden inverso.  
 # - Recorre la lista para imprimir el TOP 3.
-lista=["holoa", "sadks","dasas", "djaskdj", ]
+'''lista=["holoa", "sadks","dasas", "djaskdj", ]
 def ordenar_registro(registro, desendente=False):
     numericos=(int, float)
     boleanos=(bool,)
@@ -47,5 +47,21 @@ def ordenars_registros(registros, descendente=False):
     # Mostrar TOP 3
     print("TOP 3 registros:")
     for i in registros[:3]:
-        print(i)
+        print(i)'''
        
+lista=[10,20,5,8,15]
+
+def ordenar_registros(lista, decendente=False):
+    tipos={type(x) for x in lista}
+    if len(tipos) > 1:
+        print("Error: la lista no es comparable")
+        return []
+    lista.sort(reverse=decendente)
+
+    print("TOP 3:")
+
+    for i in range(min(3, len(lista))):
+        print(lista[i])
+    return lista
+    
+ordenar_registros(lista)
