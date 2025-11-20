@@ -29,7 +29,11 @@ while True:
     elif opcion == 2:
         servicios.mostrar(inventario)
     elif opcion == 3: 
-        servicios.calcular(inventario)
+        servicios.buscar(inventario)
+    elif opcion == 4:
+        servicios.actualizar(inventario)
+    elif opcion == 5:
+        servicios.Eliminar_producto(inventario)
         
     else:
         print("\nSaliendo del programa Suerte!")
