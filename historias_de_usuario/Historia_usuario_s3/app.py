@@ -1,5 +1,5 @@
 import servicios
-
+import archivos
 inventario=[]
 
 # Aqui esta el menu de la aplicacion que se repetira hasta introducir un 4
@@ -34,7 +34,17 @@ while True:
         servicios.actualizar(inventario)
     elif opcion == 5:
         servicios.Eliminar_producto(inventario)
-        
-    else:
+    elif opcion == 6:
+        servicios.calcular(inventario)
+    elif opcion ==7:
+        archivos.exportar(inventario)
+    elif opcion ==8:
+        inventario = archivos.cargar("inventario.csv")
+
+    elif opcion ==9:
         print("\nSaliendo del programa Suerte!")
         break 
+
+        
+    else:
+        print("\nIngrese un numero correcto")

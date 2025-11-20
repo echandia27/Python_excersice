@@ -122,6 +122,18 @@ def Eliminar_producto(inventario):
 
 # Aqui agregamos una variable para que siempre que se llame haga los calculos del inventario
 def calcular(inventario):
+    if not inventario:
+        print("El inventario esta vacio")
+        return None
+    
+    unidades_totales= sum(p["cantidad"] for p in inventario)
+    valor_total = sum(p["precio"] * p["cantidad"] for p in inventario)
+    producto_mas_caro = max(inventario, key=lambda p: p["precio"])
+    producto_mayor_stock = max(inventario, key=lambda p: p["cantidad"])
+
+    estadisticas = (unidades_totales, valor_total, producto_mas_caro, producto_mayor_stock)
+    
+    
     while True:
         try:
             print("\n<----- Calculos del Inventario ----->\n")
@@ -136,11 +148,16 @@ def calcular(inventario):
                 if opcion2 <= 0 or opcion2 >= 6:
                     print("Ingrese un número correcto")
                 elif opcion2 == 1:
+                    print(f"\nLas Unidades totales son: {unidades_totales}\n")
                   
-
                 elif opcion2 == 2:
+                    print(f"\nEl valor total del inventario es: {valor_total}\n ")
                 elif opcion2 == 3:
+                    print(f"El producto mas caro: {producto_mas_caro['nombre']} (Precio: {producto_mas_caro['precio']})\n")
+
                 elif opcion2 == 4:
+                    print(f"Producto con mayor stock: {producto_mayor_stock['nombre']} (Cantidad: {producto_mayor_stock['cantidad']}\n)")
+                    
                 elif opcion2 == 5:
                     print("usted a vuelto al menu anterior")
                     break
@@ -150,7 +167,8 @@ def calcular(inventario):
                 continue
         
         except Exception as e:
-            print(f"Error Inesperado {e}\n")        
+            print(f"Error Inesperado {e}\n") 
+    return estadisticas       
                     
 
    
