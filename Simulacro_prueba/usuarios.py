@@ -29,7 +29,7 @@ def iniciar_sesion():
         pwd=input("Contraseña: ")
 
         if validar_credenciales(user, pwd, usuarios):
-            print("\nInicio de sesion exitoso, Bienvenido!")
+            print("\nInicio de sesion exitoso, Bienvenido a TechLab Inventory Console !")
             return True
         
         intentos -= 1
