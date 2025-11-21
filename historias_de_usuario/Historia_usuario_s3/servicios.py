@@ -7,7 +7,7 @@ def agregar(inventario):
         nombre=str(input("Ingresa el nombre: "))
         #verifica si el producto ya existe 
         for producto in inventario:
-            if producto["nombre"].lower()== nombre.lower():
+            if producto["nombre"].lower()== nombre.lower():#.lower es para que sea minisculas
                 print("Producto ya existe, se sumara cantidad\n")
 
                 while True:
@@ -53,10 +53,11 @@ def agregar(inventario):
         print("\nEl producto fue agregado correctamente\n")
 
     except Exception as e:
-        print(f"Error Inesperado {e}\n")
+        print(f"Error Inesperado {e}\n") #se empieza con un try y lo que hace es que no salga un error
+                                        #indesperado en la funcion
        
 
-#Aqui agregamos una variable para que siempre que se llame busque los productos en la aplicacion
+#Avariable mostrar para mostrar todo el inventario
 def mostrar(inventario):
         if not inventario:
             print("\n<------El inventario esta vacio------->\n")
@@ -125,7 +126,8 @@ def calcular(inventario):
     if not inventario:
         print("El inventario esta vacio")
         return None
-    
+    #se ponen las estadisticas antes de crear el menu y se llaman mas adelante, ademas se unifican 
+    #en estadisticas para poder tirar return al final
     unidades_totales= sum(p["cantidad"] for p in inventario)
     valor_total = sum(p["precio"] * p["cantidad"] for p in inventario)
     producto_mas_caro = max(inventario, key=lambda p: p["precio"])

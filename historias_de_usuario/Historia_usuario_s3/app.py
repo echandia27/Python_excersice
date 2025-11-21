@@ -2,7 +2,7 @@ import servicios
 import archivos
 inventario=[]
 
-# Aqui esta el menu de la aplicacion que se repetira hasta introducir un 4
+# Aqui esta el menu de la aplicacion que se repetira hasta introducir un 9 que lo sacaria del bucle
 while True:
 
     print("\n<--Que accion desea realizar -->")
@@ -37,7 +37,7 @@ while True:
     elif opcion == 6:
         servicios.calcular(inventario)
     elif opcion ==7:
-        archivos.exportar(inventario)
+        archivos.guardar(inventario)
     elif opcion ==8:
         inventario = archivos.cargar("inventario.csv")
 
