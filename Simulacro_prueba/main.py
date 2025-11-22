@@ -1,5 +1,5 @@
 from usuarios import iniciar_sesion
-from equipos import listar_equipos, registrar_equipos, actualizar_equipo
+from equipos import listar_equipos, registrar_equipo, consultar_equipo
 from prestamos import registrar_prestamo, devolver_prestamo
 from reportes import generar_reporte
 
