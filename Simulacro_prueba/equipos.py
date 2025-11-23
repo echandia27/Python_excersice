@@ -40,7 +40,7 @@ def registrar_equipo():
 
         print("\nEquipo registrado exitosamente")
 
-#listar equipos
+#mostrar equipos
 def listar_equipos():
     print("\n-----LISTAR EQUIPOS-----")
 

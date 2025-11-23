@@ -8,9 +8,8 @@ def menu_principal():
         print("\n<=====MENU PRINCIPAL======>")
         print("1. Gestion de Equipos")
         print("2. Gestion de Prestamos")
-        print("3. Conultar Historial")
-        print("4. Exportar Reporte CSV")
-        print("5. Salir\n")
+        print("3. Consultar Historial")
+        print("4. Salir\n")
 
         try:
             opcion=int(input("Ingrese el numero de donde quiere ir"))
@@ -29,10 +28,6 @@ def menu_principal():
             elif opcion ==4:
                 print("Hata la vista!")
                 break
-                 
-                 
-                 
-                 
 
             else:
                 print("\nopcion no valida intente nuevamente\n")
@@ -45,7 +40,7 @@ def menu_gestion_equipos():
     while True:
         print("\n-----GESTION EQUIPOS-----")
         print("1. Registrar nuevo equipo")
-        print("2. Listar nuevo equipo")
+        print("2. Mostrar equipos")
         print("3. Consultar equipo por ID")
         print("4. volver\n")
 
@@ -88,11 +83,11 @@ def menu_gestion_prestamos():
                 print("Ingrese un numero entre los parametros")
 
             elif opcion == 1:
-                prestamos.solicitar_prestamo()
+                prestamos.registrar_prestamo
             elif opcion ==2:
-                prestamos.aprobar_rechazar_prestamo()
+                prestamos.aprobar_prestamo
             elif opcion == 3:
-                prestamos.registrar_devolucion()
+                prestamos.registar_devolucion
             elif opcion ==4:
                 print("Volviste al menu anteior")
                 break
@@ -107,11 +102,12 @@ def menu_gestion_prestamos():
 
 def menu_reportes():
     while True:
-        print("\n-----REPORTES-----")
-        print("1. Consultar historial por Equipo")
-        print("2. Consultar historial por Usuario")
-        print("3. Exportar reporte CSV por mes y año")
-        print("4. volver\n")
+        print("\n--- REPORTES ---")
+        print("1. Mostrar equipos disponibles")
+        print("2. Mostrar equipos prestados")
+        print("3. Mostrar equipos por categoría")
+        print("4. Mostrar historial de préstamos")
+        print("5. Volver al menú principal")
 
         try:
             opcion=int(input("Ingrese el numero de donde quiere ir"))
@@ -119,12 +115,16 @@ def menu_reportes():
                 print("Ingrese un numero entre los parametros")
 
             elif opcion == 1:
-                reportes.historial_por_equipo()
+                reportes.reporte_equipos_disponibles()
             elif opcion ==2:
-                reportes.historial_por_usuario()
+                reportes.reporte_equipos_prestados()
             elif opcion == 3:
-                reportes.exportar_reporte()
+                reportes.reporte_por_categoria()
+
             elif opcion ==4:
+                reportes.reporte_historial_prestamos()
+
+            elif opcion ==5:
                 print("Volviste al menu anteior")
                 break
             

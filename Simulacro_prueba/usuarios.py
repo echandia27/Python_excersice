@@ -1,9 +1,12 @@
 import csv
+import os
 
 def cargar_usuarios():
+    ruta = os.path.join(os.path.dirname(__file__), "usuarios.csv")
+
     usuarios=[]
     try:
-        with open ("usuarios.csv", mode="r", newline="", encoding="utf-8") as archivo:
+        with open (ruta, mode="r", newline="", encoding="utf-8") as archivo:
             lector = csv.DictReader(archivo)
             for fila in lector:
                 usuarios.append(fila)

@@ -122,7 +122,7 @@ def registrar_prestamo():
 
     guardar_prestamo(nuevo_prestamo)
 
-    print("\n====Solicitud guardada como PENDIENTE\====n")
+    print("\n====Solicitud guardada como PENDIENTE====\n")
 
     #listar prestamo
 
@@ -175,8 +175,64 @@ def aprobar_prestamo():
 #sobre escribir archivo con prestamo actualizado
 
 def sobreescribir_prestamos(lista):
+    campos=[
+        "prestamo_id", "equipo_id", "nombre_equipo",
+        "usuario_prestatario", "tipo_usuario",
+        "fecha_solicitud", "fecha_prestamo", "fecha_devolucion",
+        "dias_autorizados", "dias_reales_usados",
+        "retraso", "estado", "mes", "anio"
+    ]
+
+    with open("prestamo.csv", mode="w", newline="", encoding="utf-8") as archivo:
+        escritor= csv.DictWriter(archivo, fieldnames=campos)
+        escritor.writeheader()
+        escritor.writerows(lista)
+
+#registrar devolucion
+
+def registar_devolucion():
+    prestamos=cargar_prestamos()
+
+    en_uso= [p for p in prestamos if p["estado"]=="APROBADO"]
+
+    if not prestamos:
+        print("\nNo hay equiposprestados actualmente")
+        return
+
+    print("\nPrestamos activos")
+    for p in en_uso:
+        print(f"{p['prestamo_id']}-{p['nombre_equipo']}")
+
+    id_buscar=input("\nID del prestamos a registrar devolucion\n")
+
+    for p in prestamos:
+        if p["prestamo_id"]== id_buscar:
+
+            fecha_dev=input("Fecha de devolución (YYYY-MM-DD): ")
+            p["fecha_devolucion"]= fecha_dev
 
 
+            #calcular dias reales
+            fecha_ini=datetime.strptime(p["dias_prestamo"], "%Y-%m-%d")
+            fecha_fin=datetime.strptime(fecha_dev, "%Y-%m-%d")
+
+            dias_reales=(fecha_fin-fecha_ini).days
+            p["dias_reales_usados"]=dias_reales
+
+            #retraso
+            if dias_reales > int(p["dias_autorizados"]):
+                p["retraso"]= "SI"
+            else:
+                p["retraso"]= "NO"
+
+            p["estado"]= "DEVUELTO"
+
+            sobreescribir_prestamos(prestamos)
+
+            print("\nDevolucion reistrada correctamente\n")
+            return
+    
+    print("\nNo se encontro ese prestamo\n")
 
 
 

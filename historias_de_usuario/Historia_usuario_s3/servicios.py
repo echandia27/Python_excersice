@@ -118,7 +118,7 @@ def Eliminar_producto(inventario):
             print("\nProducto Eliminado con exito\n")
             return
 
-
+    print("\nProducto no encontrado\n")
 
 
 # Aqui agregamos una variable para que siempre que se llame haga los calculos del inventario
