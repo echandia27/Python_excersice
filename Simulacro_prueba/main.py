@@ -12,8 +12,8 @@ def menu_principal():
         print("4. Salir\n")
 
         try:
-            opcion=int(input("Ingrese el numero de donde quiere ir"))
-            if opcion <= 0 or opcion >= 6:
+            opcion=int(input("Ingrese el numero de donde quiere ir: "))
+            if opcion <= 0 or opcion >= 5:
                 print("Ingrese un numero entre los parametros")
 
             elif opcion == 1:
@@ -45,7 +45,7 @@ def menu_gestion_equipos():
         print("4. volver\n")
 
         try:
-            opcion=int(input("Ingrese el numero de donde quiere ir"))
+            opcion=int(input("Ingrese el numero de donde quiere ir: "))
             if opcion <= 0 or opcion >= 5:
                 print("Ingrese un numero entre los parametros")
 
@@ -78,7 +78,7 @@ def menu_gestion_prestamos():
         print("4. volver\n")
 
         try:
-            opcion=int(input("Ingrese el numero de donde quiere ir"))
+            opcion=int(input("Ingrese el numero de donde quiere ir: "))
             if opcion <= 0 or opcion >= 5:
                 print("Ingrese un numero entre los parametros")
 
@@ -110,8 +110,8 @@ def menu_reportes():
         print("5. Volver al menú principal")
 
         try:
-            opcion=int(input("Ingrese el numero de donde quiere ir"))
-            if opcion <= 0 or opcion >= 5:
+            opcion=int(input("Ingrese el numero de donde quiere ir: "))
+            if opcion <= 0 or opcion >= 6:
                 print("Ingrese un numero entre los parametros")
 
             elif opcion == 1:
