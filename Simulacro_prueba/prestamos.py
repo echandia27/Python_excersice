@@ -2,13 +2,17 @@ import csv
 from datetime import datetime
 from equipos import cargar_equipos  #para verificar disponibilidad
 from equipos import listar_equipos  #para mostrar equipos si se requiere 
+import os
+
+ruta_actual = os.path.dirname(os.path.abspath(__file__))  # carpeta donde está el script
+archivo_prestamos = os.path.join(ruta_actual, "prestamos.csv")
 
 #cargar prestamos 
 
 def cargar_prestamos():
     prestamos=[]
     try:
-        with open("prestamos.csv", mode="r", newline="", encoding="utf-8") as archivo:
+        with open(archivo_prestamos, mode="r", newline="", encoding="utf-8") as archivo:
             lector = csv.DictReader(archivo)
             for fila in lector:
                 prestamos.append(fila)
@@ -28,7 +32,7 @@ def guardar_prestamo(nuevo):
         "retraso", "estado", "mes", "anio"
     ]
 
-    with open("prestamos.csv", mode="a", newline="",encoding="utf-8") as archivo:
+    with open(archivo_prestamos, mode="a", newline="",encoding="utf-8") as archivo:
         escritor= csv.DictWriter(archivo, fieldnames=campos)
 
         if archivo.tell() == 0:
@@ -76,7 +80,7 @@ def registrar_prestamo():
     
     #datos de prestatario
     try:
-        usuario= input("Nombre del usuario prestatario: ")
+        usuario= input("Nombre del usuario prestatario: ").upper()
         tipo= (input("tipo de usuario (ESTUDIANTE / INSTRUCTOR / ADMINISTRATIVO): ")).upper()
     except ValueError:
         print("ingresa un valor correcto")
@@ -152,7 +156,7 @@ def aprobar_prestamo():
         print(f"{p['prestamo_id']}-{p['nombre_equipo']}")
 
     try:
-        id_buscar= input("\nID del prestamo a aprobar/rechazar: ")
+        id_buscar= input("\nID del prestamo a aprobar/rechazar: ").upper()
     except ValueError:
         print("Ingrese aprobar o rechazar")
 
@@ -193,7 +197,7 @@ def sobreescribir_prestamos(lista):
         "retraso", "estado", "mes", "anio"
     ]
 
-    with open("prestamos.csv", mode="w", newline="", encoding="utf-8") as archivo:
+    with open(archivo_prestamos, mode="w", newline="", encoding="utf-8") as archivo:
         escritor= csv.DictWriter(archivo, fieldnames=campos)
         escritor.writeheader()
         escritor.writerows(lista)

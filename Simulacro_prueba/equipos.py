@@ -1,10 +1,14 @@
 import csv
 from datetime import date
+import os
+
+ruta_actual = os.path.dirname(os.path.abspath(__file__))
+archivo_equipos = os.path.join(ruta_actual, "equipos.csv")
 
 def cargar_equipos():
     equipos=[]
     try:
-        with open("equipos.csv",mode="r", newline="", encoding="utf-8") as archivo:
+        with open(archivo_equipos,mode="r", newline="", encoding="utf-8") as archivo:
             lector= csv.DictReader(archivo)
             for fila in lector:
                 equipos.append(fila)
@@ -13,7 +17,7 @@ def cargar_equipos():
     return equipos
 
 def guardar_equipos(equipos):
-    with open("equipos.csv", mode="w", newline="", encoding="utf-8") as archivo:
+    with open(archivo_equipos, mode="w", newline="", encoding="utf-8") as archivo:
         campos = ["equipo_id", "nombre_equipo", "categoria", "estado_actual", "fecha_registro"]
         writer = csv.DictWriter(archivo, fieldnames=campos)
         writer.writeheader()
@@ -29,7 +33,7 @@ def registrar_equipo():
     fecha_registro= str(date.today())
     estado="DISPONIBLE"
 
-    with open("equipos.csv", mode="a", newline="", encoding="utf-8",) as archivo:
+    with open(archivo_equipos, mode="a", newline="", encoding="utf-8",) as archivo:
         campos=["equipo_id", "nombre_equipo", "categoria", "estado_actual", "fecha_registro"]
         escritor= csv.DictWriter(archivo, fieldnames=campos)
 
