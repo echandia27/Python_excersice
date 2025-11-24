@@ -92,11 +92,11 @@ def menu_gestion_prestamos():
                 print("Ingrese un numero entre los parametros")
 
             elif opcion == 1:
-                prestamos.registrar_prestamo
+                prestamos.registrar_prestamo()
             elif opcion ==2:
-                prestamos.aprobar_prestamo
+                prestamos.aprobar_prestamo()
             elif opcion == 3:
-                prestamos.registar_devolucion
+                prestamos.registrar_devolucion()
             elif opcion ==4:
                 print("Volviste al menu anteior")
                 break

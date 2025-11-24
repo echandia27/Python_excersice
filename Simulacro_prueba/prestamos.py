@@ -21,17 +21,17 @@ def cargar_prestamos():
 
 def guardar_prestamo(nuevo):
     campos=[
-        "prestamos id", "equipos_id", "nombre_equipo",
+        "prestamo_id", "equipo_id", "nombre_equipo",
         "usuario_prestatario", "tipo_usuario",
         "fecha_solicitud", "fecha_prestamo", "fecha_devolucion",
         "dias_autorizados", "dias_reales_usados",
         "retraso", "estado", "mes", "anio"
     ]
 
-    with open("prestamo.csv", mode="a", newline="",encoding="utf-8") as archivo:
+    with open("prestamos.csv", mode="a", newline="",encoding="utf-8") as archivo:
         escritor= csv.DictWriter(archivo, fieldnames=campos)
 
-        if archivo.tell == 0:
+        if archivo.tell() == 0:
             escritor.writeheader()
 
         escritor.writerow(nuevo)
@@ -41,7 +41,7 @@ def generar_id():
     if not prestamos:
         return "P1"
     
-    ultimo= prestamos[-1] [prestamos]
+    ultimo= prestamos[-1] ["prestamo_id"]
     numero= int(ultimo[1:]) +1
     return f"P{numero}"
 
@@ -64,7 +64,7 @@ def registrar_prestamo():
         return
     print("\nEquipos disponibles:")
     for e in disponibles:
-        print(f"- {e['equipo_id']} | {e['nombre equipo']} ({e['categoria']})")
+        print(f"- {e['equipo_id']} | {e['nombre_equipo']} ({e['categoria']})")
 
     equipo_id= input("\nIngrese id del equipo que desea prestar: ")
 
@@ -77,24 +77,24 @@ def registrar_prestamo():
     #datos de prestatario
     try:
         usuario= input("Nombre del usuario prestatario: ")
-        tipo= (input("tipo de usuario (ESTUDIANTE / INTRUCTOR / ADMINITRATIVO): ")).upper()
+        tipo= (input("tipo de usuario (ESTUDIANTE / INSTRUCTOR / ADMINISTRATIVO): ")).upper()
     except ValueError:
         print("ingresa un valor correcto")
 
-    if tipo not in ("ESTUDIANTE", "INTRUCTOR", "ADMINISTRATIVO"):
+    if tipo not in ("ESTUDIANTE", "INSTRUCTOR", "ADMINISTRATIVO"):
         print("Tipo de Usuario invalido")
         return
     
     #fechas y dias
     try:
         fecha_prestamo= input("fecha del prestamo (YYYY-MM-DD): ")
-        dias= (input("Dias solicitados"))
+        dias= int(input("Dias solicitados"))
     except ValueError:
         print("ingresa un valor correcto")
 
     #limites
 
-    limites={"ESTUDIANTE": 3, "INTRUCTOR": 7, "ADMINISTRATIVO": 10 }
+    limites={"ESTUDIANTE": 3, "INSTRUCTOR": 7, "ADMINISTRATIVO": 10 }
 
     if dias > limites[tipo]:
         print(f"Este usuario solo puede pedir {limites[tipo]} dias")
@@ -163,6 +163,16 @@ def aprobar_prestamo():
             if decicion =="A":
                 p["estado"]= "APROBADO"
                 print("\nPrestamo: APROBADO")
+
+                # Cambiar estado del equipo a PRESTADO
+                equipos = cargar_equipos()
+                equipo = next((e for e in equipos if e["equipo_id"] == p["equipo_id"]), None)
+
+                if equipo:
+                    equipo["estado_actual"] = "PRESTADO"
+                    from equipos import guardar_equipos
+                    guardar_equipos(equipos)
+
             else:
                 p["estado"]= "RECHAZADO"
                 print("\nPrestamo: RECHAZADO")
@@ -183,19 +193,19 @@ def sobreescribir_prestamos(lista):
         "retraso", "estado", "mes", "anio"
     ]
 
-    with open("prestamo.csv", mode="w", newline="", encoding="utf-8") as archivo:
+    with open("prestamos.csv", mode="w", newline="", encoding="utf-8") as archivo:
         escritor= csv.DictWriter(archivo, fieldnames=campos)
         escritor.writeheader()
         escritor.writerows(lista)
 
 #registrar devolucion
 
-def registar_devolucion():
+def registrar_devolucion():
     prestamos=cargar_prestamos()
 
     en_uso= [p for p in prestamos if p["estado"]=="APROBADO"]
 
-    if not prestamos:
+    if not en_uso:
         print("\nNo hay equiposprestados actualmente")
         return
 
@@ -203,7 +213,7 @@ def registar_devolucion():
     for p in en_uso:
         print(f"{p['prestamo_id']}-{p['nombre_equipo']}")
 
-    id_buscar=input("\nID del prestamos a registrar devolucion\n")
+    id_buscar=input("\nID del prestamos a registrar devolucion\n").upper()
 
     for p in prestamos:
         if p["prestamo_id"]== id_buscar:
@@ -213,7 +223,7 @@ def registar_devolucion():
 
 
             #calcular dias reales
-            fecha_ini=datetime.strptime(p["dias_prestamo"], "%Y-%m-%d")
+            fecha_ini=datetime.strptime(p["fecha_prestamo"], "%Y-%m-%d")
             fecha_fin=datetime.strptime(fecha_dev, "%Y-%m-%d")
 
             dias_reales=(fecha_fin-fecha_ini).days
@@ -226,6 +236,15 @@ def registar_devolucion():
                 p["retraso"]= "NO"
 
             p["estado"]= "DEVUELTO"
+
+            # Cambiar estado del equipo a DISPONIBLE
+            equipos = cargar_equipos()
+            equipo = next((e for e in equipos if e["equipo_id"] == p["equipo_id"]), None)
+
+            if equipo:
+                equipo["estado_actual"] = "DISPONIBLE"
+                from equipos import guardar_equipos
+                guardar_equipos(equipos)
 
             sobreescribir_prestamos(prestamos)
 

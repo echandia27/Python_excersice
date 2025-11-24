@@ -1,5 +1,11 @@
 import csv
 
+def formatear_fecha(fecha):
+    """Convierte AAAAMMDD a AAAA-MM-DD"""
+    if len(fecha) == 8:
+        return f"{fecha[0:4]}-{fecha[4:6]}-{fecha[6:8]}"
+    return fecha
+
 #cargar equipos
 
 def cargar_equipos():
@@ -52,7 +58,7 @@ def reporte_equipos_prestados():
         return
     
     for p in prestamos:
-        print(f"ID prestamo: {p['prestamo_id']} | Equipo: {p['equipo_id']} | Cliente: {p['cliente']} | Fecha: {p['fecha_prestamo']}")
+        print(f"ID prestamo: {p['prestamo_id']} | Equipo: {p['equipo_id']} | Usuario: {p['usuario_prestatario']} | Fecha: {formatear_fecha(p['fecha_prestamo'])}")
 
 #reporte 3: equipo por categoria
 
@@ -86,7 +92,7 @@ def reporte_historial_prestamos():
         print(
             f"ID Préstamo: {p['prestamo_id']} | "
             f"Equipo: {p['equipo_id']} | "
-            f"Cliente: {p['cliente']} | "
-            f"Fecha préstamo: {p['fecha_prestamo']} | "
-            f"Fecha devolución: {p.get('fecha_devolucion', '---')}"
+            f"Usuario: {p['usuario_prestatario']} | "
+            f"Fecha préstamo: {formatear_fecha(p['fecha_prestamo'])} | "
+            f"Fecha devolución: {formatear_fecha(p.get('fecha_devolucion', '---'))}"
         )

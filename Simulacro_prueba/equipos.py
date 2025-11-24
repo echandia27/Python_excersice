@@ -93,7 +93,7 @@ def poner_en_mantenimiento():
         return
     equipo["estado_actual"]= "MANTENIMIENTO"
 
-    guardar_equipos(equipo)
+    guardar_equipos(equipos)
     print("\nEquipo puesto en mantenimiento")
 
 def quitar_de_mantenimiento():

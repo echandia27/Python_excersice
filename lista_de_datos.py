@@ -45,3 +45,10 @@ eliminado = lista.pop(2)
 
 print(lista)      # [10, 20, 40]
 print(eliminado)  # 30
+
+#generar un id automatico empezando desde el 1, 2 , 3 y asi
+def generar_id_automatico(productos):
+    if not productos:
+        return 1
+    ultimo_id = max(p["id"] for p in productos)
+    return ultimo_id + 1
