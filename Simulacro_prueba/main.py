@@ -26,7 +26,7 @@ def menu_principal():
                 menu_reportes()
 
             elif opcion ==4:
-                print("Hata la vista!")
+                print("Hasta la vista!")
                 break
 
             else:
@@ -41,21 +41,30 @@ def menu_gestion_equipos():
         print("\n-----GESTION EQUIPOS-----")
         print("1. Registrar nuevo equipo")
         print("2. Mostrar equipos")
-        print("3. Consultar equipo por ID")
-        print("4. volver\n")
+        print("3. Poner equipo en mantenimiento")
+        print("4. Sacar equio de mantenimiento")
+        print("5. Consultar equipo por ID")
+        print("6. volver\n")
 
         try:
             opcion=int(input("Ingrese el numero de donde quiere ir: "))
-            if opcion <= 0 or opcion >= 5:
+            if opcion <= 0 or opcion >= 7:
                 print("Ingrese un numero entre los parametros")
 
             elif opcion == 1:
                 equipos.registrar_equipo()
             elif opcion ==2:
                 equipos.listar_equipos()
+
             elif opcion == 3:
+                equipos.poner_en_mantenimiento()
+
+            elif opcion == 4:
+                equipos.quitar_de_mantenimiento()
+
+            elif opcion == 5:
                 equipos.consultar_equipo()
-            elif opcion ==4:
+            elif opcion ==6:
                 print("Volviste al menu anteior")
                 break
             

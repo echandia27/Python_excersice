@@ -12,6 +12,13 @@ def cargar_equipos():
         print("El archivo equipos.csv, no existe todavia")
     return equipos
 
+def guardar_equipos(equipos):
+    with open("equipos.csv", mode="w", newline="", encoding="utf-8") as archivo:
+        campos = ["equipo_id", "nombre_equipo", "categoria", "estado_actual", "fecha_registro"]
+        writer = csv.DictWriter(archivo, fieldnames=campos)
+        writer.writeheader()
+        writer.writerows(equipos)
+
 def registrar_equipo():
     print("\n-----REGISTRO DEL EQUIPO-----\n")
     
@@ -74,3 +81,32 @@ def consultar_equipo():
             return
         
     print("No se encontro ningun equipo con esa ID")
+
+def poner_en_mantenimiento():
+    equipos=cargar_equipos()
+    equipo_id=input("Ingrese el ID del equipo que se ira a mantenimiento: ")
+
+    equipo= next((e for e in equipos if e ["equipo_id"] == equipo_id), None)
+
+    if not equipo:
+        print("Equipo no encontrado.")
+        return
+    equipo["estado_actual"]= "MANTENIMIENTO"
+
+    guardar_equipos(equipo)
+    print("\nEquipo puesto en mantenimiento")
+
+def quitar_de_mantenimiento():
+    equipos = cargar_equipos()
+    equipo_id = input("Ingrese el ID del equipo: ")
+
+    equipo = next((e for e in equipos if e["equipo_id"] == equipo_id), None)
+
+    if not equipo:
+        print("Equipo no encontrado.")
+        return
+
+    equipo["estado_actual"] = "DISPONIBLE"
+
+    guardar_equipos(equipos)
+    print("Equipo habilitado nuevamente.")

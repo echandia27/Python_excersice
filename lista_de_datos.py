@@ -37,3 +37,11 @@ lista_de = ["l", "g", "h", "q"]
 lista_de.remove("l")
 
 print(lista_de)
+
+#eliminar por posicion
+
+lista = [10, 20, 30, 40]
+eliminado = lista.pop(2)
+
+print(lista)      # [10, 20, 40]
+print(eliminado)  # 30
