@@ -11,14 +11,14 @@ def add_book(library):
 
                 while True:
                     try:
-                        cantidad= int(input("Enter the amount to add"))
+                        cantidad= int(input("Enter the amount to add: "))
                         if cantidad <=0:
                             print("Invalid value, must be greater than 0")
                             continue
                         break
                     except ValueError:
                         print("Enter a valid integer")
-                libro["stock"]+= cantidad
+                libro["stock"]=int(libro["stock"]) + cantidad
                 print("The amount was added\n")
                 return
         # como el producto no existe se crea 

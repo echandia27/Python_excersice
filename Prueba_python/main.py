@@ -18,6 +18,7 @@ while True:
     print("1. ADD Book")
     print("2. Show books")
     print("3. Search ")
+    print("4. Update Book")
     print("5. Delete Book ")
     print("6. Sales ")
     print("7. Reports module")

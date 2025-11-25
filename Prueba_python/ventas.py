@@ -68,17 +68,16 @@ def reportes(comprador):
                 print(f"The best-selling product is: {top3}")
             
         
-            elif opcion == 2:
+            elif opcion == 3:
                 print(f"The total value sold is: {valor_total}")
 
-            elif opcion == 3:
+            elif opcion == 2:
                 try:
                     escoger_autor=str(input("Which author are you looking for? "))
                 except ValueError:
                     print("Enter what is requested")
-                for p in comprador:
-                    if escoger_autor == p["autor"]:
-                        print(f"The total cost of sale {escoger_autor} is {valor_total}")
+                total_autor=sum(p["precio"]* p["stock"] for p in comprador if p["autor"]== escoger_autor)
+                print(f"The total cost of sale {escoger_autor} is {total_autor}")
    
             elif opcion == 4:
                 print("\n Back to the previous menu")
