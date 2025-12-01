@@ -1,0 +1,67 @@
+header {
+    
+    background-color: rgb(0, 0, 0);
+    color: aliceblue;
+    display: flex;
+    flex-direction: column; /* apila .header-top y nav verticalmente */
+    gap: 20px; 
+    padding: 20px;
+}
+
+
+.header-top {
+    display: flex;       /* imagen y textos en fila */
+    align-items: center; /* centra verticalmente la imagen con los textos */
+    gap: 20px;
+}
+
+header img {
+    width: 140px;   /* ajusta al tamaño que quieras */
+    height: auto;
+    border-radius: 20px;
+    max-height: 140px;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column; /* PONE LOS TEXTOS UNO DEBAJO DEL OTRO */
+    text-align: left;
+    margin-top: -50px;
+
+}
+.header-text h1 {
+    font-size: 2.5rem; /* aumenta el tamaño de "Mi portafolio" */
+    margin: 0;          /* elimina espacio extra arriba/abajo si quieres */
+    padding: 0;
+}
+
+.header-text h2 {
+    font-size: 1.5rem; /* aumenta el tamaño de "Juan Pablo Echandia Sanchez" */
+    margin: 0; /* pequeño margen arriba */
+    font-weight: normal; /* opcional: puedes cambiar grosor */
+    padding: 0;
+}
+
+body {
+    background-color: rgb(207, 165, 25);
+}
+
+nav ul {
+    display: flex;           /* pone los li en fila horizontal */
+    list-style: none;        /* quita los puntos de la lista */
+    padding: 0;
+    margin: 0;
+    justify-content: center; /* centra los enlaces horizontalmente */
+    gap: 30px;               /* espacio entre los enlaces */
+}
+
+nav ul li a {
+    color: aliceblue;        /* color de los enlaces */
+    text-decoration: none;   /* quita el subrayado */
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f7d46e;          /* color al pasar el mouse */
+}
