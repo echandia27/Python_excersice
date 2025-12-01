@@ -1,5 +1,5 @@
 header {
-    
+    height: 130px;
     background-color: rgb(0, 0, 0);
     color: aliceblue;
     display: flex;
@@ -20,6 +20,7 @@ header img {
     height: auto;
     border-radius: 20px;
     max-height: 140px;
+    margin-top: -5px;
 }
 
 .header-text {
@@ -52,7 +53,8 @@ nav ul {
     padding: 0;
     margin: 0;
     justify-content: center; /* centra los enlaces horizontalmente */
-    gap: 30px;               /* espacio entre los enlaces */
+    gap: 30px; 
+   margin-top: -45px;              /* espacio entre los enlaces */
 }
 
 nav ul li a {
@@ -60,8 +62,10 @@ nav ul li a {
     text-decoration: none;   /* quita el subrayado */
     font-weight: bold;
     transition: 0.3s;
+    
 }
 
 nav ul li a:hover {
     color: #f7d46e;          /* color al pasar el mouse */
 }
+
