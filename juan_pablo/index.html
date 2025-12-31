@@ -4,42 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
+    
 </head>
-<body>
+<body>  
     <header>
         <div class="header-top">
-            <img src="./imagenes/Diseño sin título.png" alt="Juan">
+            <img class="juan" src="./imagenes/Diseño sin título.png" alt="Juan">
             <div class="header-text">
-                <h1>Mi portafolio</h1>
-                <h2>Juan Pablo Echandia Sanchez</h2>
+                <h1>Juan Pablo Echandia Sanchez</h1>
+                <h2>Desarrollador Web & Programador</h2>
             </div>
         </div>
         
-         <nav>
+         <nav class="el-nav">
                 <ul>
                     <li><a href="#Sobre-mi">Sobre Mi</a></li>
                     <li><a href="#Proyectos">Proyectos</a></li>
-                    <li><a href="#Contacto">Contacto</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
+             
     </header>
-    <section id="Sobre-mi">
-        <p>Bienvenido a mi portafolio. Aquí encontrarás proyectos de desarrollo web, diseño de interfaces y programación en Python. Mi objetivo es crear soluciones digitales que sean útiles, visualmente atractivas y escalables.</p>
+<div class="fondo">
+    <section class="Sobre-mi" id="Sobre-mi">
+        
+        <h2>Sobre Mi</h2>
+        
+        <p>Bienvenido a mi portafolio profesional. Soy Juan Pablo Echandia Sanchez, desarrollador web y programador apasionado por la creación de soluciones digitales innovadoras. Aquí encontrarás una selección de proyectos que reflejan mi experiencia en desarrollo web, diseño de interfaces intuitivas y programación en Python. <br> <br>
+
+        Mi objetivo es diseñar y desarrollar aplicaciones y sitios web que no solo sean funcionales, sino también visualmente atractivos, escalables y fáciles de usar. Cada proyecto que comparto ha sido realizado con atención al detalle, buenas prácticas de programación y un enfoque centrado en la experiencia del usuario. <br> <br>
+
+        Explora mis trabajos, descubre mis habilidades y siéntete libre de contactarme para colaborar o compartir ideas. Estoy comprometido con la creación de soluciones digitales que generen valor y marquen la diferencia.</p>
+        
+         
     </section>
     <section id="Proyectos">
-    <h2>Proyectos que he realizado</h2>
-    <ul>
-        <li><a href="https://github.com/echandia27">Mi perfil</a></li>
-        <li><a href="https://github.com/echandia27/Python_excersice/blob/main/historias_de_usuario/Diagrama%20HU1.drawio.png">Diagrama</a></li>
-        <li><a href="https://github.com/echandia27/Python_excersice/blob/main/historias_de_usuario/historia_usuario_s1.py">HU1</a></li>
-        <li><a href="https://github.com/echandia27/Python_excersice/blob/main/historias_de_usuario/historia_usuario_s2.py">HU2</a></li>
-        <li><a href="https://github.com/echandia27/Python_excersice/tree/main/Simulacro_prueba">Simulacro</a></li>
-        <li><a href="https://github.com/echandia27/Prueba_de_desenpe-o_python.git">Prueba de desempeño</a></li>
-        <li><a href="./mascotas.html">Mascotas</a></li>
-    </ul>
-</section>
+        <h2>Proyectos que he realizado</h2>
 
+        <div class="proyectos-grid">
+            <a class="card" href="https://github.com/echandia27">Mi perfil</a>
+            <a class="card" href="https://github.com/echandia27/Python_excersice/blob/main/historias_de_usuario/historia_usuario_s1.py">HU1-python</a>
+            <a class="card" href="https://github.com/echandia27/Python_excersice/blob/main/historias_de_usuario/historia_usuario_s2.py">HU2-python</a>
+            <a class="card" href="https://github.com/echandia27/Python_excersice/tree/main/Simulacro_prueba">Simulacro</a>
+            <a class="card" href="https://github.com/echandia27/Prueba_de_desenpe-o_python.git">Prueba de desempeño</a>
+            <a class="card" href="https://github.com/echandia27/Portafolio.git">HU1-html/css</a>
+            <a class="card" href="./pages/mascotas.html">Mascotas</a>
+            <a class="card" href="https://echandia27.github.io/HTLM_CSS_excercises/">Ejercicios de HTML/CSS</a>
+        </div>
+    </section>
+</div>
+
+   
 
     <section id="contacto">
         
@@ -64,5 +80,7 @@
         </form>
     </section>
     <footer><p>By Juan Pablo Echandia < ----- > jp.echandia@gmail.com</p></footer>
+    <script src="./js/portafolio.js"></script>
+
 </body>
 </html> 
